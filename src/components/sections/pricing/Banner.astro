@@ -1,0 +1,95 @@
+---
+// Import SecondaryCTA component for use in this module
+import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
+import Icon from "@components/ui/icons/Icon.astro";
+
+import GA from "@images/logos/GA.webp";
+
+// Define props from Astro
+const { pricing } = Astro.props;
+
+// Define TypeScript type for products.
+type Product = {
+  name: string;
+  description: string;
+  price: string;
+  cents: string;
+  billingFrequency: string;
+  features: Array<string>;
+  purchaseBtnTitle: string;
+  purchaseLink: string;
+};
+
+interface PricingSectionProps {
+  title: string;
+  subTitle: string;
+  badge: string;
+  thirdOption: string;
+  btnText: string;
+  pricing: {
+    title: string;
+    subTitle: string;
+    starterKit: Product;
+    professionalToolbox: Product;
+  };
+}
+---
+
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+   <section class="logo-bar">
+      <div class="logo-wrapper">
+        <div class="logo-container">
+          <img src={GA} alt="Logo 1">
+          <img src="logo2.png" alt="Logo 2">
+          <img src="logo3.png" alt="Logo 3">
+          <img src="logo4.png" alt="Logo 4">
+          <img src="logo5.png" alt="Logo 5">
+          <!-- Repeat the logos to create a seamless loop -->
+          <img src="logo1.png" alt="Logo 1">
+          <img src="logo2.png" alt="Logo 2">
+          <img src="logo3.png" alt="Logo 3">
+          <img src="logo4.png" alt="Logo 4">
+          <img src="logo5.png" alt="Logo 5">
+        </div>
+      </div>
+    </section>
+</section>
+
+<style>
+.logo-bar {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f8f8; /* Change as needed */
+  padding: 20px 0;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  width: 200%;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-container img {
+  max-height: 100px; /* Adjust height as needed */
+  width: auto; /* Maintain aspect ratio */
+  margin: 0 20px;
+  object-fit: contain; /* Ensure the image fits within the height while maintaining aspect ratio */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+</style>

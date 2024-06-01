@@ -7,7 +7,8 @@ import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSectionv4.astro";
+import Services from "@components/sections/pricing/Services3.astro";
 import FAQ from "@components/sections/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import AnnouncementBanner2 from "@components/ui/banners/Cookies.astro";
@@ -20,8 +21,6 @@ import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 import { getRelativeLocaleUrl } from 'astro:i18n';
-
-import Banner from "@components/sections/pricing/Banner.astro";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -74,38 +73,6 @@ const avatarSrcs: Array<string> = [
 
 
 
-  <FeaturesNavs
-  title=`L'équipe de l'<span class="text-orange-500 dark:text-orange-400">AGENCE ELR</span> est là pour répondre à tous vos besoins en marketing digital.`
-  tabs={[
-    {
-      heading: "Support Personnalisé",
-      content:
-        "Bénéficiez d'un accompagnement sur mesure à chaque étape de votre projet, assuré par une équipe dédiée à votre succès.",
-      svg: "tools",
-      src: tools,
-      alt: "Équipe offrant un support client personnalisé",
-      first: true,
-    },
-    {
-      heading: "Résultats Mesurables",
-      content:
-        "Obtenez des résultats concrets et mesurables grâce à nos solutions axées sur la performance et l'analyse de données.",
-      svg: "dashboard",
-      src: dashboard,
-      alt: "Graphique illustrant des résultats mesurables",
-    },
-    {
-      heading: "Expertise en Stratégie",
-      content:
-        "Profitez de notre expertise en stratégie marketing pour développer des plans efficaces et adaptés à votre marché cible.",
-      svg: "dashboard",
-      src: construction,
-      alt: "Tableau présentant des données stratégiques",
-    },
-  ]}
-/>
-
-
 <TestimonialsSection
   title="Découvrez Nos Résultats"
   subTitle="À l'AGENCE ELR, nous nous engageons à offrir des résultats exceptionnels pour tous vos projets de marketing digital. Notre équipe garantit une exécution efficace et des résultats mesurables qui respectent vos objectifs et votre budget."
@@ -143,18 +110,177 @@ const avatarSrcs: Array<string> = [
   ]}
 />
 
-<Banner />
 
+  <PricingSection />
 
-  <!-- <PricingSection pricing={pricing} /> -->
+  <Services />
 
-  <FAQ id="faq" title="Questions<br />fréquemment posées" faqs={faqs} />
 
   <HeroSectionAlt
     title="Faisons Affaires Ensemble"
     subTitle="Nous sommes fiers de pouvoir changer la vie des entrepreneurs qui nous font confiance, c'est ce qui nous motive réellement. Serez-vous le prochain?"
     url="/contact"
   />
+
+  <section>
+    <h1>Inclusions</pan></h1>
+      <h2>Ce que le forfait OR vous donne</h2>
+      
+      <table class="container">
+        <thead>
+          <tr>
+            <th><h1>Services</h1></th>
+            <th><h1>Argent</h1></th>
+            <th><h1>Gold</h1></th>
+            <th><h1>Average</h1></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Creation web</td>
+            <td>9518</td>
+            <td>6369</td>
+            <td>01:32:50</td>
+          </tr>
+          <tr>
+            <td>Twitter</td>
+            <td>7326</td>
+            <td>10437</td>
+            <td>00:51:22</td>
+          </tr>
+          <tr>
+            <td>Amazon</td>
+            <td>4162</td>
+            <td>5327</td>
+            <td>00:24:34</td>
+          </tr>
+          <tr>
+            <td>LinkedIn</td>
+            <td>3654</td>
+            <td>2961</td>
+            <td>00:12:10</td>
+          </tr>
+          <tr>
+            <td>CodePen</td>
+            <td>2002</td>
+            <td>4135</td>
+            <td>00:46:19</td>
+          </tr>
+          <tr>
+            <td>GitHub</td>
+            <td>4623</td>
+            <td>3486</td>
+            <td>00:31:52</td>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+  <br>
+
+  <style>
+
+h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
+}
+
+h2 {
+  font-size:1em; 
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.container th {
+	  background-color: #1F2739;
+}
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+  </style>
+
+    
 </MainLayout>
 
 <script is:inline src="/scripts/vendor/gsap/gsap.min.js"></script>

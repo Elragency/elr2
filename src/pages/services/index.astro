@@ -9,8 +9,6 @@ import TestimonialsSectionAlt from "@components/sections/testimonials/Testimonia
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import pricing from "@data/fr/pricing.json";
 
-import PricingSectionv2 from "@components/sections/pricing/PricingSectionv2.astro";
-import PricingSectionv3 from "@components/sections/pricing/PricingSectionv3.astro";
 import PricingSectionv4 from "@components/sections/pricing/PricingSectionv4.astro";
 
 
@@ -35,34 +33,35 @@ const subTitle: string =
 const testimonials = [
   {
     content:
-      "La qualité du service de peinture de Gestion Laucandrique a complètement transformé l'apparence de notre bureau. Leur attention aux détails et leur efficacité sont exceptionnelles, garantissant un fini impeccable et durable. Travailler avec Gestion Laucandrique, c'est choisir l'excellence.",
-    author: "Jason Clark",
-    role: "Propriétaire de maison | Longueuil",
+      "Les services d'automatisation de l'Agence ELR ont révolutionné notre entreprise. L'intégration du CRM et du système de facturation a simplifié nos opérations et augmenté notre efficacité. Leur expertise et leur support continu sont incomparables.",
+    author: "Mathieu Brodeur",
+    role: "Propriétaire de PME | Longueuil",
     avatarSrc:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Portrait de Jason Clark",
+    avatarAlt: "Portrait de Mathieu Brodeur",
   },
 
   {
     content:
-      "En rénovant notre maison, nous avons fait appel à Gestion Laucandrique pour les travaux de cloison sèche. Leur équipe a livré un travail rapide et propre, créant des espaces parfaitement nivelés prêts pour la décoration. Gestion Laucandrique combine qualité et rapidité pour une satisfaction totale.",
-    author: "Maria Gonzalez",
-    role: "Chargé de projet | Broccolini",
+      "L'Agence ELR a conçu notre site web avec une technologie de pointe. Leur approche personnalisée et leur utilisation de la technologie Astro et de l'intelligence artificielle ont donné des résultats impressionnants. Nous avons reçu de nombreux compliments sur notre nouveau site.",
+    author: "Jacynthe Cloutier",
+    role: "Directrice de la gestion client| Plomberie Expert",
     avatarSrc:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Portrait de Maria Gonzalez",
+    avatarAlt: "Portrait de Jacynthe Cloutier",
   },
 
   {
     content:
-      "Pour tous mes besoins en petits travaux et réparations, je fais confiance à Gestion Laucandrique. Leur service de bricoleur est fiable et efficace, s'occupant de tout avec un professionnalisme sans faille. Chaque intervention est réalisée avec précision, et leurs solutions sont toujours durables.",
+      "Les services de marketing digital de l'Agence ELR ont considérablement augmenté notre visibilité en ligne. Grâce à leur expertise en SEO et en gestion des réseaux sociaux, nous avons atteint un nouveau public et augmenté nos ventes. Leur équipe est professionnelle et réactive.",
     author: "Richard Gauthier",
-    role: "Gestionnaire immobilier | Solutioncondo",
+    role: "Gestionnaire de Projets | Groupe Brodeur",
     avatarSrc:
       "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Portrait de Richard Kim",
+    avatarAlt: "Portrait de Richard Gauthier",
   },
 ];
+
 
 
 ---
@@ -140,7 +139,7 @@ const testimonials = [
 <PricingSection pricing={pricing} />
 
 
-<!-- <PricingSectionv4/> -->
+<PricingSectionv4/>
 
   <!--Testimonials section-->
   <TestimonialsSectionAlt
@@ -149,6 +148,7 @@ const testimonials = [
   />
 
 </MainLayout>
+
 
 <script>
 // https://www.linkedin.com/in/atakangk/
