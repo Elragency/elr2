@@ -1,0 +1,78 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@components/sections/fr/ContactSection_fr2.astro";
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title="Contact | Gestion Laucandrique"
+  lang="fr"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.horuss.ca/contact/",
+    url: "https://www.horuss.ca/contact/",
+    name: "Contactez-nous | Horuss",
+    description:
+      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://www.horuss.ca",
+      name: "Horuss",
+      description:
+        "Gestion Laucandrique propose des services de haut niveau, d'experts prêt pour répondre à tous les besoins de votre syndicat.",
+    },
+    inLanguage: "fr-CAN",
+  }}
+>
+  <ContactSection />
+
+
+  <script>
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+  
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      result.innerHTML = "Veuillez patienter...";
+  
+      fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: json
+      })
+      .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+              // Set a custom message directly instead of using json.message
+              result.innerHTML = "Merci pour votre intérêt! Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+          } else {
+              console.log(response);
+              result.innerHTML = json.message;  // Display API provided error message
+          }
+      })
+      .catch(error => {
+          console.log(error);
+          result.innerHTML = "Something went wrong!";
+      })
+      .then(function() {
+          form.reset();
+          setTimeout(() => {
+              result.innerHTML = "";  // Clear the message after a delay
+              result.style.display = "none";  // Optionally hide the result div
+          }, 3000);
+      });
+  });
+  </script>
+  <script>
+
+  </script>
+  
+</MainLayout>

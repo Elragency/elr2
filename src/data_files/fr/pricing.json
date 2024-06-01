@@ -1,0 +1,42 @@
+{
+  "title": "Tarification Simple et Transparente",
+  "subTitle": "Peu importe le service que vous avez besoin, nous avons un plan qui saura vous convenir.",
+  "badge": "Meilleure valeur",
+  "thirdOption": "Vous n'êtes pas sur?",
+  "btnText": "Obtenez un Devis Personnalisé",
+
+  "starterKit": {
+    "name": "Forfait Bronze",
+    "description": "Meilleure option pour les syndicats en autogestion qui ont uniquement besoin du service de comptabilité.",
+    "price": "$2499",
+    "cents": ".99",
+    "billingFrequency": "CAD / mensuel",
+    "features": [
+      "Tenir à jour les registres comptables",
+      "Produire les états financiers périodiques et annuels",
+      "Proposition du budget annuel",
+      "Accès à un service d’urgence 24/7"
+    ],
+    "purchaseBtnTitle": "Obtenez ce forfait",
+    "purchaseLink": "#"
+  },
+
+  "professionalToolbox": {
+    "name": "Forfait Or",
+    "description": "Idéale pour les syndicats de copropriétés qui souhaitent un service complet de gestion pour protéger leur investissement immobilier tout en se libérant des lourdes tâches que cela comportent.",
+    "price": "$4999",
+    "cents": ".99",
+    "billingFrequency": "CAD / mensuel",
+    "features": [
+      "Accès à l’espace client en temps réel",
+      "Accès à un gestionnaire attitré à votre syndicat",
+      "Accès à un service d’urgence 24/7",
+      "Accès à un service de comptabilité complet",
+      "Préparer, convoquer et assister à l’assemblé générale annuelle",
+      "Accompagner le conseil d’administration pour l’octroi des contrats d’entretien"
+      
+    ],
+    "purchaseBtnTitle": "Obtenez le meilleur service sur le marché",
+    "purchaseLink": "#"
+  }
+}

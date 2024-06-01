@@ -1,0 +1,234 @@
+---
+// Importing necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import pricing from "@data/fr/pricing.json";
+
+import PricingSectionv2 from "@components/sections/pricing/PricingSectionv2.astro";
+import PricingSectionv3 from "@components/sections/pricing/PricingSectionv3.astro";
+import PricingSectionv4 from "@components/sections/pricing/PricingSectionv4.astro";
+
+
+// Importing necessary functions from Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+// Fetching all the product related content and sorting it by main.id
+const product: CollectionEntry<"services">[] = (
+  await getCollection("services")
+).sort(
+  (a: CollectionEntry<"services">, b: CollectionEntry<"services">) =>
+    a.data.main.id - b.data.main.id
+);
+
+// Define variables for page content
+const title: string = "Nos Services";
+const subTitle: string =
+  "Explorez les différents outils et produits qui vous permettraient de faire accroitre votre entreprise.";
+
+// Testimonial data that will be rendered in the component
+const testimonials = [
+  {
+    content:
+      "La qualité du service de peinture de Gestion Laucandrique a complètement transformé l'apparence de notre bureau. Leur attention aux détails et leur efficacité sont exceptionnelles, garantissant un fini impeccable et durable. Travailler avec Gestion Laucandrique, c'est choisir l'excellence.",
+    author: "Jason Clark",
+    role: "Propriétaire de maison | Longueuil",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Portrait de Jason Clark",
+  },
+
+  {
+    content:
+      "En rénovant notre maison, nous avons fait appel à Gestion Laucandrique pour les travaux de cloison sèche. Leur équipe a livré un travail rapide et propre, créant des espaces parfaitement nivelés prêts pour la décoration. Gestion Laucandrique combine qualité et rapidité pour une satisfaction totale.",
+    author: "Maria Gonzalez",
+    role: "Chargé de projet | Broccolini",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Portrait de Maria Gonzalez",
+  },
+
+  {
+    content:
+      "Pour tous mes besoins en petits travaux et réparations, je fais confiance à Gestion Laucandrique. Leur service de bricoleur est fiable et efficace, s'occupant de tout avec un professionnalisme sans faille. Chaque intervention est réalisée avec précision, et leurs solutions sont toujours durables.",
+    author: "Richard Gauthier",
+    role: "Gestionnaire immobilier | Solutioncondo",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Portrait de Richard Kim",
+  },
+];
+
+
+---
+
+<MainLayout
+  title="Nos Services | AGENCE ELR"
+  lang="fr"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.elragency.com/services",
+    url: "https://www.elragency.com/services",
+    name: "Services de pros | AGENCE ELR",
+    description:
+      "Notre but est de fournir un service de qualité à un prix imbattable sur le marché",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://elragency.com/services",
+      name: "Agence ELR",
+      description:
+        "Nous avons une main d'oeuvre qualifiée avec l'expérience requise pour accomplir vos projets rapidement.",
+    },
+    inLanguage: "fr-CAN",
+  }}
+>
+
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title}
+        </h1>
+        {
+          subTitle && (
+            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+              {subTitle}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA
+        title="Histoires de clients"
+        url="#testimonials"
+        noArrow={true}
+      />
+    </div>
+    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
+    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8">
+      {
+        product.map((product, index) => {
+          return <CardSmall product={product} key={index} />;
+        })
+      }
+    </section>
+    
+  </div>
+  <!--Features statistics section-->
+  <FeaturesStatsAlt
+  title="Pourquoi choisir AGENCE ELR ?"
+  subTitle="Confiez votre marketing digital à AGENCE ELR. Notre expertise garantit non seulement la qualité mais aussi la personnalisation de chaque service selon vos besoins spécifiques."
+  benefits={[
+    "Création de sites web modernes et optimisés pour maximiser votre visibilité et conversion en ligne.",
+    "Automatisation des procédés pour simplifier vos opérations et améliorer l'efficacité de votre entreprise.",
+    "Stratégies de marketing digital personnalisées pour attirer et fidéliser vos clients, augmentant ainsi votre retour sur investissement.",
+    "Gestion complète des médias sociaux pour renforcer l'engagement de votre audience et promouvoir votre marque de manière efficace.",
+  ]}
+/>
+
+
+<PricingSection pricing={pricing} />
+
+
+<!-- <PricingSectionv4/> -->
+
+  <!--Testimonials section-->
+  <TestimonialsSectionAlt
+    title="Ce que disent nos clients"
+    testimonials={testimonials}
+  />
+
+</MainLayout>
+
+<script>
+// https://www.linkedin.com/in/atakangk/
+//jQuery time
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+
+$(".next").click(function(){
+	if(animating) return false;
+	animating = true;
+	
+	current_fs = $(this).parent();
+	next_fs = $(this).parent().next();
+	
+	//activate next step on progressbar using the index of next_fs
+	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+	
+	//show the next fieldset
+	next_fs.show(); 
+	//hide the current fieldset with style
+	current_fs.animate({opacity: 0}, {
+		step: function(now, mx) {
+			//as the opacity of current_fs reduces to 0 - stored in "now"
+			//1. scale current_fs down to 80%
+			scale = 1 - (1 - now) * 0.2;
+			//2. bring next_fs from the right(50%)
+			left = (now * 50)+"%";
+			//3. increase opacity of next_fs to 1 as it moves in
+			opacity = 1 - now;
+			current_fs.css({
+        'transform': 'scale('+scale+')',
+        'position': 'absolute'
+      });
+			next_fs.css({'left': left, 'opacity': opacity});
+		}, 
+		duration: 800, 
+		complete: function(){
+			current_fs.hide();
+			animating = false;
+		}, 
+		//this comes from the custom easing plugin
+		easing: 'easeInOutBack'
+	});
+});
+
+$(".previous").click(function(){
+	if(animating) return false;
+	animating = true;
+	
+	current_fs = $(this).parent();
+	previous_fs = $(this).parent().prev();
+	
+	//de-activate current step on progressbar
+	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+	
+	//show the previous fieldset
+	previous_fs.show(); 
+	//hide the current fieldset with style
+	current_fs.animate({opacity: 0}, {
+		step: function(now, mx) {
+			//as the opacity of current_fs reduces to 0 - stored in "now"
+			//1. scale previous_fs from 80% to 100%
+			scale = 0.8 + (1 - now) * 0.2;
+			//2. take current_fs to the right(50%) - from 0%
+			left = ((1-now) * 50)+"%";
+			//3. increase opacity of previous_fs to 1 as it moves in
+			opacity = 1 - now;
+			current_fs.css({'left': left});
+			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+		}, 
+		duration: 800, 
+		complete: function(){
+			current_fs.hide();
+			animating = false;
+		}, 
+		//this comes from the custom easing plugin
+		easing: 'easeInOutBack'
+	});
+});
+
+
+</script>

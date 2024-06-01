@@ -1,0 +1,29 @@
+{
+  "subTitle": "Posez-nous toutes vos questions sur nos services de marketing digital et obtenez des réponses factuelles.",
+  "faqs": [
+    {
+      "question": "Quels services de marketing offre l'AGENCE ELR ?",
+      "answer": "AGENCE ELR offre une gamme complète de services de marketing digital, incluant la création de sites web, l'automatisation des procédés, le marketing de contenu, le référencement (SEO), la gestion des médias sociaux et la publicité en ligne. Nous concevons des stratégies personnalisées pour répondre aux besoins spécifiques de chaque client."
+    },
+    {
+      "question": "Comment l'AGENCE ELR améliore-t-elle la visibilité en ligne de ses clients ?",
+      "answer": "AGENCE ELR utilise une combinaison de techniques de référencement (SEO), de publicité payante (PPC), et de gestion des médias sociaux pour augmenter la visibilité en ligne. Nos experts créent des campagnes ciblées et optimisent le contenu pour attirer un trafic qualifié et améliorer le classement sur les moteurs de recherche."
+    },
+    {
+      "question": "Qu'est-ce qui distingue l'AGENCE ELR des autres agences de marketing digital ?",
+      "answer": "AGENCE ELR se distingue par son approche personnalisée, son utilisation des dernières technologies et son engagement envers des résultats mesurables. Notre équipe dévouée travaille en étroite collaboration avec chaque client pour comprendre ses objectifs et développer des stratégies efficaces et adaptées."
+    },
+    {
+      "question": "Comment l'AGENCE ELR mesure-t-elle le succès des campagnes de marketing ?",
+      "answer": "AGENCE ELR utilise des outils d'analyse avancés pour suivre et mesurer les performances des campagnes. Nous fournissons des rapports détaillés et transparents sur les indicateurs clés de performance (KPI) tels que le trafic web, le taux de conversion, le retour sur investissement (ROI) et l'engagement sur les réseaux sociaux."
+    },
+    {
+      "question": "Quels types de contenu crée l'AGENCE ELR pour ses clients ?",
+      "answer": "AGENCE ELR crée une variété de contenus, y compris des articles de blog, des vidéos, des infographies, des posts pour les réseaux sociaux, et du contenu optimisé pour le SEO. Nous veillons à ce que chaque contenu soit engageant, pertinent et aligné avec l'image de marque du client."
+    },
+    {
+      "question": "L'AGENCE ELR propose-t-elle des services de gestion des médias sociaux ?",
+      "answer": "Oui, AGENCE ELR offre des services complets de gestion des médias sociaux. Nous développons des stratégies de contenu, gérons les publications, interagissons avec les abonnés et analysons les performances pour maximiser l'engagement et atteindre les objectifs marketing de nos clients."
+    }
+  ]
+}

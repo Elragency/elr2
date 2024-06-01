@@ -1,0 +1,146 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import ClientsSection from "@components/sections/landing/ClientsSection.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import FAQ from "@components/sections/FAQ.astro";
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+import heroImage from "@images/Logorev.webp";
+import faqs from "@data/fr/faqs.json";
+import features from "@data/fr/features.json";
+import pricing from "@data/fr/pricing.json";
+import featureImage from "@images/services/brochure.webp";
+import construction from "@images/construction-image.avif";
+import tools from "@images/automated-tools.avif";
+import dashboard from "@images/dashboard-image.avif";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const avatarSrcs: Array<string> = [
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+---
+
+<MainLayout lang="fr">
+  <AnnouncementBanner
+    btnId="dismiss-button"
+    btnTitle="Découvrez Horuss"
+    url="https://elragency.com"
+  />
+
+  <HeroSection
+    title=`<span class="text-orange-600 dark:text-orange-600">HORUSS:</span> Notre mission est de construire l'héritage de demain`
+    subTitle="Une jeune équipe dynamique qui souhaite vous offrir le meilleur service possible."
+    primaryBtn="Commencez à explorer nos offres"
+    primaryBtnURL={getRelativeLocaleUrl("fr", "products")}
+    secondaryBtn="Contacter nous directement"
+    secondaryBtnURL={getRelativeLocaleUrl("fr", "contact")}
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4.8</span> / 5`
+    starCount={4}
+    reviews=`Avec plus de <span class="font-bold">12,8k</span> avis`
+    src={heroImage}
+    alt="Pile de boîtes de produits Horuss contenant des outils matériels assortis"
+  />
+
+  <ClientsSection
+    title="Une jeune compagnie qui fait ses preuves"
+    subTitle="Découvrez la fiabilité choisie par plus de 500 clients partout en montérégie."
+  />
+
+  <FeaturesGeneral
+    title="Répondre aux exigences de l'industrie"
+    subTitle="Chez Horuss, nous relevons les défis uniques rencontrés dans les secteurs de la constructions. Des employés compétents à vous aider à surmonter les obstacles et compléter vos projets, nous sommes déterminés à atteindre vos objectifs."
+    src={featureImage}
+    alt="Sites web produits par Horuss flottants dans les airs"
+    features={features}
+  />
+
+  <FeaturesNavs
+    title=`L'équipe d'<span class="text-yellow-500 dark:text-yellow-400">Horuss</span> est là pour répondre à tous vos besoins de constructions et de rénovations.`
+    tabs={[
+      {
+        heading: "Équipe qualifiée",
+        content:
+          "Pas de temps perdu, nous sommes performants et professionnels pour réaliser tous vos projets le plus efficacement possible.",
+        svg: "tools",
+        src: tools,
+        alt: "Équipement lourd jaune et noir sur un champ d'herbe brune",
+        first: true,
+      },
+      {
+        heading: "Des preuves faites",
+        content:
+          "Nous avons de nombreux clients prêts à témoigner du professionnalisme de nos services.",
+        svg: "dashboard",
+        src: dashboard,
+        alt: "Capture d'écran ou représentation graphique du tableau de bord intuitif",
+        second: true,
+      },
+      {
+        heading: "Services complémentaires",
+        content:
+          "Peu importe ce que vous avez besoin comme aide, nous avons ce qu'il vous faut et pouvons vous aider.",
+        svg: "house",
+        src: construction,
+        alt: "L'équipe de Horuss prête à vous aider dans vos projets numériques.",
+      },
+    ]}
+  />
+
+  <TestimonialsSection
+    title="Accélérez vos projets"
+    subTitle="Chez Horuss, nous nous engageons à la perfection et garantissons que tous vos projets de construction sont exécutés efficacement, sans complication et dans le respect de votre budget."
+    testimonials={[
+      {
+        content:
+          "Horuss a transformé la manière dont nous gérons nos projets. L'exécution a été immédiate et la rapidité de leurs réponses est exceptionnelle. Ils ont véritablement respecté leur promesses et le résultat est incroyable !",
+        author: "Samantha Ruiz",
+        role: "Directrice des opérations | ConstructIt Inc.",
+        avatarSrc:
+          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      },
+    ]}
+    statistics={[
+      {
+        count: "350+",
+        description:
+          "Projets dans la dernière année réalisé par l'équipe d'Horuss et aucune insatisfaction d'aucun client.",
+      },
+      {
+        count: "45%",
+        description:
+          "Réduction moyenne des coûts sur nos projets, arrêter de payer des montants insolent pour vos projets.",
+      },
+      {
+        count: "15,3%",
+        description:
+          "De nos projets finissent avant l'échancier prévus",
+      },
+      {
+        count: "2x",
+        description:
+          "de projets réalisés en l'espace de 4 mois.",
+      },
+    ]}
+  />
+
+  <PricingSection pricing={pricing} />
+
+  <FAQ title="Questions<br />fréquemment posées" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="Construisons ensemble"
+    subTitle="Horuss est une jeune compagnie qui va réaliser vos projets au meilleur prix sur le marché et avec le meilleur résultat possible."
+    url="/contact"
+  />
+</MainLayout>
+
