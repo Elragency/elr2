@@ -1,0 +1,310 @@
+---
+// Import SecondaryCTA component for use in this module
+import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
+import Icon from "@components/ui/icons/Icon.astro";
+
+// Define props from Astro
+const { pricing } = Astro.props;
+
+// Define TypeScript type for products.
+type Product = {
+  name: string;
+  description: string;
+  price: string;
+  cents: string;
+  billingFrequency: string;
+  features: Array<string>;
+  purchaseBtnTitle: string;
+  purchaseLink: string;
+};
+
+interface PricingSectionProps {
+  title: string;
+  subTitle: string;
+  badge: string;
+  thirdOption: string;
+  btnText: string;
+  pricing: {
+    title: string;
+    subTitle: string;
+    starterKit: Product;
+    professionalToolbox: Product;
+  };
+}
+---
+<h2
+class="text-balance text-3xl font-bold text-neutral-800 dark:text-neutral-200 lg:text-4xl"
+> Nos partenaires qui ont décidé de nous faire confiance.
+</h2>
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  
+  <div id="wrapper">
+    <div class="portfolio-item">
+      <div class="portfolio-thumb">
+        <img src="https://mzeppieri.com/wp-content/uploads/2018/08/adv-phorma-featured-img.png">
+      </div>
+      <div class="portfolio-description">
+        <h3>Lorem Ipsum Dolor Sit Amen</h3>
+        <p>Maecenas diam arcu, rhoncus eu bibendum at, bibendum vel dui.</p>
+        <p class="read-more">Read more</p>
+      </div>
+      <a href="https://www.instagram.com/p/BjrzdsyBEgI/?taken-by=ema.red" class="portfolio-link" target="_blank"></a>
+    </div>
+    <div class="other-links">
+      <a href="https://www.behance.net/EmanuelePapale" class="link">Behance</a> / <a href="https://dribbble.com/EmanuelePapale" class="link">Dribbble</a> / <a href="https://www.linkedin.com/in/emanuelepapale/" class="link">Instagram</a> / <a href="https://www.instagram.com/ema.red/" class="link">Linkedin</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  var cursor = $(".cursor"),
+    follower = $(".cursor-follower");
+
+var posX = 0,
+    posY = 0;
+
+var mouseX = 0,
+    mouseY = 0;
+
+TweenMax.to({}, 0.016, {
+  repeat: -1,
+  onRepeat: function() {
+    posX += (mouseX - posX) / 9;
+    posY += (mouseY - posY) / 9;
+    
+    TweenMax.set(follower, {
+        css: {    
+        left: posX - 12,
+        top: posY - 12
+        }
+    });
+    
+    TweenMax.set(cursor, {
+        css: {    
+        left: mouseX,
+        top: mouseY
+        }
+    });
+  }
+});
+
+$(document).on("mousemove", function(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+$(".link").on("mouseenter", function() {
+    cursor.addClass("active");
+    follower.addClass("active");
+});
+$(".link").on("mouseleave", function() {
+    cursor.removeClass("active");
+    follower.removeClass("active");
+});
+
+$(".portfolio-link").on("mouseenter", function() {
+    cursor.addClass("active2");
+    follower.addClass("active2");
+});
+$(".portfolio-link").on("mouseleave", function() {
+    cursor.removeClass("active2");
+    follower.removeClass("active2");
+});
+</script>
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700,900');
+
+*{
+  box-sizing:border-box;
+}
+a{
+  cursor:none;
+}
+#wrapper{
+  width:100%;
+  height:100vh;
+  background-color:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.cursor {
+  position: absolute;
+  background-color: #fff;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  z-index: 1;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  transform: scale(1);
+}
+.cursor::before {
+  content:'';
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+  background-image:url(http://mirkozeppieri.emanuelepapale.com/wp-content/uploads/2018/07/project-hover-cursor.jpg);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  border-radius: 100%;
+  opacity:0;
+}
+.cursor.active {
+  opacity: 0.5;
+  transform: scale(0);
+}
+.cursor.active2 {
+  opacity: 1;
+  transform: scale(12);
+}
+.cursor.active2::before {
+  opacity: 1;
+}
+.cursor.hovered {
+  opacity: 0.08;
+}
+.cursor-follower {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  z-index: 1;
+  transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.4s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(5px, 5px);
+}
+.cursor-follower.active {
+  opacity: 0.7;
+  transform: scale(3);
+}
+.cursor-follower.active2 {
+  opacity: 0.3;
+  transform: scale(0);
+}
+.cursor-follower.hovered {
+  opacity: 0.08;
+}
+.portfolio-item{
+  width:100%;
+  max-width:600px;
+  display:flex;
+  flex-wrap:wrap;
+  position:relative;
+}
+.portfolio-thumb{
+  width:300px;
+  height:300px;
+  position:relative;
+  overflow:hidden;
+  transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+}
+.portfolio-thumb img{
+  max-width:300px;
+  opacity:0.4;
+  transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+  transform-origin:90% center;
+}
+.portfolio-description{
+  width:50%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  flex-direction:column;
+  padding:0 2rem;
+}
+.portfolio-description h3{
+  margin-top:0;
+  margin-bottom:.5rem;
+  font-size:2.5rem;
+  line-height:1;
+  text-transform:uppercase;
+  font-weight:800;
+  width:140%;
+  position:relative;
+  display:inline-block;
+  left:-40%;
+  transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+}
+.portfolio-description p{
+  opacity:0.8;
+  line-height:2;
+  margin:0;
+}
+.portfolio-description .read-more{
+  text-transform:uppercase;
+  opacity:1;
+  letter-spacing:1px;
+  font-weight:700;
+  margin-top:1.5rem;
+  position:relative;
+  padding-left:2.5rem;
+}
+.portfolio-description .read-more::before{
+  content:'';
+  width:2rem;
+  height:1px;
+  display:block;
+  position:absolute;
+  top:50%;
+  left:0;
+  background-color:#fff;
+}
+.portfolio-item .portfolio-link{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.portfolio-item:hover .portfolio-thumb{
+  transform:translateX(-1.75rem);
+}
+.portfolio-item:hover .portfolio-thumb img{
+  opacity:0.7;
+  transform:scale(1.2);
+}
+.portfolio-item:hover .portfolio-description h3{
+  transform:translateX(1.75rem);
+}
+.other-links{
+  width:100%;
+  box-sizing:border-box;
+  padding:2rem;
+  position:absolute;
+  left:0;
+  bottom:0;
+  text-align:center;
+  font-size:13px;
+  letter-spacing:1px;
+}
+.other-links a{
+  text-decoration:none;
+  color:#fff;
+  text-transform:uppercase;
+  opacity:1;
+  display:inline-block;
+  margin:0 10px;
+  font-weight:600;
+  opacity:0.7;
+  transition:all 0.2s ease-in;
+}
+.other-links a:hover{
+  transform:translateY(-3px);
+  opacity:1;
+}
+</style>

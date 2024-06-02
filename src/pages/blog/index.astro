@@ -22,14 +22,15 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Votre passerelle vers l’excellence en construction";
+const title: string = "Votre Passerelle vers l'Excellence en Digital";
 const subTitle: string =
-  "Découvrez les dernières nouvelles, conseils et informations d'Horuss pour améliorer vos projets de construction. Des produits phares aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne la quincaillerie et la construction.";
-const secondTitle: string = "Insights";
+  "Découvrez les dernières nouvelles, conseils et informations d'Agence ELR pour améliorer vos projets digitaux. Des technologies phares aux stratégies de marketing digital, notre blog est votre ressource incontournable pour tout ce qui concerne l'automatisation, la création web et le marketing digital.";
+const secondTitle: string = "Étude de Cas";
 const secondSubTitle: string =
-  "Restez au courant des dernières tendances et développements dans le secteur de la construction grâce aux informations de l'équipe d'experts du secteur d'Horuss.";
+  "Restez au courant des dernières tendances et développements dans le secteur du digital grâce aux informations de l'équipe d'experts d'Agence ELR.";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
+
 ---
 
 <MainLayout
@@ -37,15 +38,15 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.horuss.ca/blog",
-    "url": "https://www.horuss.ca/blog",
-    "name": "Blog | Horuss",
-    "description": "Restez au courant des dernières tendances et développements dans le secteur de la construction grâce aux informations de l'équipe d'experts du secteur d'Horuss.",
+    "@id": "https://www.elragency.com/blog",
+    "url": "https://www.elragency.com/blog",
+    "name": "Blog | Agence ELR",
+    "description": "Découvrez les dernières nouvelles, conseils et informations d'Agence ELR pour améliorer vos projets digitaux. Des technologies phares aux stratégies de marketing digital, notre blog est votre ressource incontournable pour tout ce qui concerne l'automatisation, la création web et le marketing digital.",
     "isPartOf": {
       "@type": "WebSite",
-      "url": "https://horuss.ca",
-      "name": "Horuss",
-      "description": "Horuss propose des outils matériels de haut niveau et des services de construction experts pour répondre à tous les besoins de votre projet."
+      "url": "https://www.elragency.com",
+      "name": "Agence ELR",
+      "description": "Restez au courant des dernières tendances et développements dans le secteur du digital grâce aux informations de l'équipe d'experts d'Agence ELR."
     },
     "inLanguage": "fr-CAN"
   }}
@@ -84,7 +85,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     <CardBlogRecent blogEntry={mostRecentPost} />
   </section>
   <!--Insights section-->
-  <section
+  <!-- <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
@@ -104,5 +105,5 @@ const pageTitle: string = `Blog | ${SITE.title}`;
         ))
       }
     </div>
-  </section>
+  </section> -->
 </MainLayout>

@@ -8,7 +8,7 @@
   "starterKit": {
     "name": "Croissance, Automatisation et SEO",
     "description": "Idéal pour les petites et moyennes entreprises cherchant à améliorer leur présence en ligne et à rationaliser leurs opérations.",
-    "price": "$1999",
+    "price": "$999",
     "cents": ".99",
     "billingFrequency": "CAD / mensuel",
     "features": [
@@ -27,7 +27,7 @@
   "professionalToolbox": {
     "name": "Automatisation Premium, SEO et Transformation Digitale",
     "description": "Parfait pour les entreprises de taille moyenne recherchant une transformation digitale complète et une présence en ligne robuste.",
-    "price": "$4999",
+    "price": "$2999",
     "cents": ".99",
     "billingFrequency": "CAD / mensuel",
     "features": [

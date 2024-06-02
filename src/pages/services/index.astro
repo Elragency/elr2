@@ -11,6 +11,7 @@ import pricing from "@data/fr/pricing.json";
 
 import PricingSectionv4 from "@components/sections/pricing/PricingSectionv4.astro";
 
+import Portfolio2 from "@components/sections/pricing/Portfolio.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
@@ -134,6 +135,10 @@ const testimonials = [
     "Gestion complète des médias sociaux pour renforcer l'engagement de votre audience et promouvoir votre marque de manière efficace.",
   ]}
 />
+
+
+
+<Portfolio2 />
 
 
 <PricingSection pricing={pricing} />

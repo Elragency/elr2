@@ -39,17 +39,17 @@ interface PricingSectionProps {
    <section class="logo-bar">
       <div class="logo-wrapper">
         <div class="logo-container">
-          <img src={GA} alt="Logo 1">
-          <img src="logo2.png" alt="Logo 2">
-          <img src="logo3.png" alt="Logo 3">
-          <img src="logo4.png" alt="Logo 4">
-          <img src="logo5.png" alt="Logo 5">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/GA.webp" alt="Logo de google analytics">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/GAW.webp" alt="Logo de google adwords">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/GTM.webp" alt="Logo de google tag manager">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/Hubspot.webp" alt="Logo d'hubspot">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/Odoo.webp" alt="Logo d'odoo">
           <!-- Repeat the logos to create a seamless loop -->
-          <img src="logo1.png" alt="Logo 1">
-          <img src="logo2.png" alt="Logo 2">
-          <img src="logo3.png" alt="Logo 3">
-          <img src="logo4.png" alt="Logo 4">
-          <img src="logo5.png" alt="Logo 5">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/GA.webp" alt="Logo de google analytics">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/GAW.webp" alt="Logo de google adwords">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/GTM.webp" alt="Logo de google tag manager">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/Hubspot.webp" alt="Logo d'hubspot">
+          <img src="https://raw.githubusercontent.com/Elragency/elr2/main/src/images/logos/Odoo.webp" alt="Logo d'odoo">
         </div>
       </div>
     </section>
@@ -59,7 +59,7 @@ interface PricingSectionProps {
 .logo-bar {
   width: 100%;
   overflow: hidden;
-  background: #f8f8f8; /* Change as needed */
+  background: transparent; /* Change as needed */
   padding: 20px 0;
 }
 
@@ -88,6 +88,13 @@ interface PricingSectionProps {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* Faster scrolling on smaller screens */
+@media (max-width: 768px) {
+  .logo-container {
+    animation: scroll 10s linear infinite;
   }
 }
 
