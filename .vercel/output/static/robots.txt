@@ -13,7 +13,6 @@ Disallow:
 Allow: /
 Crawl-delay: 2
 
-User-agent: *
-Disallow: /
+
 
 Sitemap: https://elragency.com/sitemap-index.xml
