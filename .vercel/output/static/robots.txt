@@ -14,5 +14,4 @@ Allow: /
 Crawl-delay: 2
 
 
-
-Sitemap: https://elragency.com/sitemap-index.xml
+Sitemap: https://elragency.com/sitemap-0.xml
